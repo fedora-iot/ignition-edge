@@ -1,0 +1,13 @@
+[Unit]
+Description=Mark Ignition Boot Complete
+ConditionKernelCommandLine=ignition.firstboot
+RequiresMountsFor=/boot
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+MountFlags=slave
+ExecStart=/bin/bash -c 'mount -o remount,rw /boot && rm -rf /boot/ignition && rm -rf /boot/ignition.firstboot'
+
+[Install]
+WantedBy=basic.target

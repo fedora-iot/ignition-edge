@@ -1,0 +1,22 @@
+[Unit]
+Description=Ignition User Config Setup
+ConditionPathExists=/etc/initrd-release
+DefaultDependencies=false
+
+# We run before config fetch because we may copy in new/different configs
+# for Ignition to consume.
+Before=ignition-fetch-offline.service
+
+OnFailure=emergency.target
+OnFailureJobMode=isolate
+
+Requires=dev-disk-by\\x2dlabel-boot.device
+After=dev-disk-by\\x2dlabel-boot.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# The MountFlags=slave is so the umount of /boot is guaranteed to happen
+# /boot will only be mounted for the lifetime of the unit.
+MountFlags=slave
+ExecStart=/usr/sbin/ignition-setup-user
