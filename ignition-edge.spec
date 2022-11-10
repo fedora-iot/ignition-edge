@@ -35,7 +35,7 @@ dracut module and firstboot systemd services
 %make_install
 
 %files
-%{dracutlibdir}/modules.d/35coreos-ignition
+%{dracutlibdir}/modules.d/35ignition-user
 %{_unitdir}/ignition-firstboot-complete.service
 
 %post

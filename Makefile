@@ -8,17 +8,17 @@ all:
 
 .PHONY: install
 install:
-	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/35coreos-ignition \
-		dracut/35coreos-ignition/coreos-enable-network.service \
-		dracut/35coreos-ignition/coreos-teardown-initramfs.service \
-		dracut/35coreos-ignition/ignition-ostree-mount-var.service \
-		dracut/35coreos-ignition/ignition-setup-user.service
-	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35coreos-ignition \
-		dracut/35coreos-ignition/module-setup.sh \
-		dracut/35coreos-ignition/coreos-enable-network.sh \
-		dracut/35coreos-ignition/coreos-teardown-initramfs.sh \
-		dracut/35coreos-ignition/ignition-ostree-mount-var.sh \
-		dracut/35coreos-ignition/ignition-setup-user.sh
+	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-user \
+		dracut/35ignition-user/coreos-enable-network.service \
+		dracut/35ignition-user/coreos-teardown-initramfs.service \
+		dracut/35ignition-user/ignition-ostree-mount-var.service \
+		dracut/35ignition-user/ignition-setup-user.service
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-user \
+		dracut/35ignition-user/module-setup.sh \
+		dracut/35ignition-user/coreos-enable-network.sh \
+		dracut/35ignition-user/coreos-teardown-initramfs.sh \
+		dracut/35ignition-user/ignition-ostree-mount-var.sh \
+		dracut/35ignition-user/ignition-setup-user.sh
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/systemd/system systemd/ignition-firstboot-complete.service
 
 
