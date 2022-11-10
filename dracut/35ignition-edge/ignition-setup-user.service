@@ -10,8 +10,8 @@ Before=ignition-fetch-offline.service
 OnFailure=emergency.target
 OnFailureJobMode=isolate
 
-Requires=dev-disk-by\\x2dlabel-boot.device
-After=dev-disk-by\\x2dlabel-boot.device
+Requires=dev-disk-by\x2dlabel-boot.device
+After=dev-disk-by\x2dlabel-boot.device
 
 [Service]
 Type=oneshot
