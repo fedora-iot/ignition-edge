@@ -9,16 +9,19 @@ all:
 .PHONY: install
 install:
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
-		dracut/35ignition-edge/coreos-enable-network.service \
-		dracut/35ignition-edge/coreos-teardown-initramfs.service \
-		dracut/35ignition-edge/ignition-ostree-mount-var.service \
-		dracut/35ignition-edge/ignition-setup-user.service
+		dracut/35ignition-edge/*.service
 	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
-		dracut/35ignition-edge/module-setup.sh \
-		dracut/35ignition-edge/coreos-enable-network.sh \
-		dracut/35ignition-edge/coreos-teardown-initramfs.sh \
-		dracut/35ignition-edge/ignition-ostree-mount-var.sh \
-		dracut/35ignition-edge/ignition-setup-user.sh
+		dracut/35ignition-edge/*.sh
+	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/99emergency-shell-setup \
+		dracut/99emergency-shell-setup/*.service
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/99emergency-shell-setup \
+		dracut/99emergency-shell-setup/*.sh
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/10coreos-sysctl \
+		dracut/10coreos-sysctl/*.sh
+	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/99journal-conf \
+		dracut/99journal-conf/*.conf
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/99journal-conf \
+		dracut/99journal-conf/*.sh
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/systemd/system systemd/ignition-firstboot-complete.service
 
 

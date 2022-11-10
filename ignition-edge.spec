@@ -36,6 +36,9 @@ dracut module and firstboot systemd services
 
 %files
 %{dracutlibdir}/modules.d/35ignition-edge
+%{dracutlibdir}/modules.d/10coreos-sysctl
+%{dracutlibdir}/modules.d/99emergency-shell-setup
+%{dracutlibdir}/modules.d/99journal-conf
 %{_unitdir}/ignition-firstboot-complete.service
 
 %post
