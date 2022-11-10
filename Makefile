@@ -23,6 +23,9 @@ install:
 	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/99journal-conf \
 		dracut/99journal-conf/*.sh
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/systemd/system systemd/ignition-firstboot-complete.service
+	install -D -m 0644 -t $(DESTDIR)/usr/lib/systemd/system systemd/coreos-ignition-write-issues.service
+	install -D -m 0755 -t $(DESTDIR)/usr/libexec \
+		scripts/coreos-ignition-write-issues
 
 
 RPM_SPECFILE=rpmbuild/SPECS/ignition-edge-$(COMMIT).spec
