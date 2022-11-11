@@ -26,6 +26,9 @@ install:
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/systemd/system systemd/coreos-ignition-write-issues.service
 	install -D -m 0755 -t $(DESTDIR)/usr/libexec \
 		scripts/coreos-ignition-write-issues
+	install -D -m 0644 -t $(DESTDIR)/usr/lib/systemd/system systemd/coreos-check-ssh-keys.service
+	install -D -m 0755 -t $(DESTDIR)/usr/libexec \
+		scripts/coreos-check-ssh-keys
 
 
 RPM_SPECFILE=rpmbuild/SPECS/ignition-edge-$(COMMIT).spec
