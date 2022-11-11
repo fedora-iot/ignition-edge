@@ -42,6 +42,8 @@ dracut module and firstboot systemd services
 %{_unitdir}/ignition-firstboot-complete.service
 %{_unitdir}/coreos-ignition-write-issues.service
 %{_unitdir}/coreos-check-ssh-keys.service
+%{_libexecdir}/coreos-ignition-write-issues
+%{_libexecdir}/coreos-check-ssh-keys
 
 %post
 %systemd_post ignition-firstboot-complete.service
