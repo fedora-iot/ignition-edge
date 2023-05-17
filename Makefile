@@ -9,9 +9,25 @@ all:
 .PHONY: install
 install:
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
-		dracut/35ignition-edge/*.service
+		dracut/35ignition-edge/coreos-enable-network.service
 	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
-		dracut/35ignition-edge/*.sh
+		dracut/35ignition-edge/coreos-enable-network.sh
+	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/coreos-teardown-initramfs.service
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/coreos-teardown-initramfs.sh
+	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/ignition-setup-user.service
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/ignition-setup-user.sh
+	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/ignition-ostree-mount-var.service
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/ignition-ostree-mount-var.sh
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/module-setup.sh
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/ignition-edge-generator
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/99emergency-shell-setup \
 		dracut/99emergency-shell-setup/*.service
 	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/99emergency-shell-setup \

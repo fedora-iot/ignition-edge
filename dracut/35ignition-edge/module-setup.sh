@@ -26,6 +26,9 @@ install() {
         realpath \
         sgdisk
 
+    inst_simple "$moddir/ignition-edge-generator" \
+        "$systemdutildir/system-generators/ignition-edge-generator"
+
     inst_script "$moddir/ignition-setup-user.sh" \
         "/usr/sbin/ignition-setup-user"
     install_ignition_unit ignition-setup-user.service
@@ -42,6 +45,5 @@ install() {
 
     inst_simple "$moddir/coreos-enable-network.sh" \
         "/usr/sbin/coreos-enable-network"
-    install_ignition_unit "coreos-enable-network.service" \
-        "initrd.target"
+    install_ignition_unit "coreos-enable-network.service"
 }
