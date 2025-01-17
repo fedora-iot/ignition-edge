@@ -11,6 +11,10 @@ copy_file_if_exists() {
     fi
 }
 
+if [ ! -w /usr ]; then
+    mount -o rw,remount /usr
+fi
+
 destination=/usr/lib/ignition
 mkdir -p $destination
 
