@@ -12,6 +12,8 @@ install:
 		dracut/35ignition-edge/coreos-enable-network.service
 	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
 		dracut/35ignition-edge/coreos-enable-network.sh
+	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
+		dracut/35ignition-edge/coreos-relabel
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
 		dracut/35ignition-edge/coreos-teardown-initramfs.service
 	install -D -m 0755 -t $(DESTDIR)/usr/lib/dracut/modules.d/35ignition-edge \
@@ -45,6 +47,8 @@ install:
 	install -D -m 0644 -t $(DESTDIR)/usr/lib/systemd/system systemd/coreos-check-ssh-keys.service
 	install -D -m 0755 -t $(DESTDIR)/usr/libexec \
 		scripts/coreos-check-ssh-keys
+	install -D -m 0644 -t $(DESTDIR)/usr/share/licenses/ignition-edge \
+		LICENSE
 
 
 RPM_SPECFILE=rpmbuild/SPECS/ignition-edge-$(COMMIT).spec
