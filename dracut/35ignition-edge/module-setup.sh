@@ -24,7 +24,8 @@ install() {
         sed \
         grep \
         realpath \
-        sgdisk
+        sgdisk \
+        setfiles
 
     inst_simple "$moddir/ignition-edge-generator" \
         "$systemdutildir/system-generators/ignition-edge-generator"
@@ -32,6 +33,9 @@ install() {
     inst_script "$moddir/ignition-setup-user.sh" \
         "/usr/sbin/ignition-setup-user"
     install_ignition_unit ignition-setup-user.service
+
+    inst_script "$moddir/coreos-relabel" \
+        "/usr/sbin/coreos-relabel"
 
     inst_script "$moddir/coreos-teardown-initramfs.sh" \
         "/usr/sbin/coreos-teardown-initramfs"
