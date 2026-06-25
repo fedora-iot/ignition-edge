@@ -24,7 +24,6 @@ install() {
         sed \
         grep \
         realpath \
-        sgdisk \
         setfiles
 
     inst_simple "$moddir/ignition-edge-generator" \
