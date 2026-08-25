@@ -22,6 +22,13 @@ if ! dracut_func getargbool 0 'rd.neednet'; then
     # away from this once we run NM as a systemd unit. See also:
     # https://github.com/coreos/fedora-coreos-config/pull/346#discussion_r409843428
     set +euo pipefail
-    . /usr/lib/dracut/hooks/cmdline/99-nm-config.sh
+    # dracut 110+ removed compatibility symlink at /usr/lib; check both locations
+    if [ -f /var/lib/dracut/hooks/cmdline/99-nm-config.sh ]; then
+        . /var/lib/dracut/hooks/cmdline/99-nm-config.sh
+    elif [ -f /usr/lib/dracut/hooks/cmdline/99-nm-config.sh ]; then
+        . /usr/lib/dracut/hooks/cmdline/99-nm-config.sh
+    else
+        echo "Error: 99-nm-config.sh hook not found" >&2
+    fi
     set -euo pipefail
 fi
